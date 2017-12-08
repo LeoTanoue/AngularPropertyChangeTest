@@ -7,10 +7,6 @@ export class Account {
     }
     this.ChangeSetlist = [];
   }
-  // AccountID;
-  // Name;
-  // DBA;
-  // BusinessStartDate: Date;
 
   private _accountID: string;
   @Input('AccountID')
