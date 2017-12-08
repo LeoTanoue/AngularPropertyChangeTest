@@ -54,8 +54,7 @@ export class AppComponent implements OnInit {
   }
 
   updateAccount(updateAccount: Account) {
-
-    const updateAccount2 = new Account('0419c5ee-62c8-e711-80e4-00155d00122c');
+    const updateAccount2 = new Account();
     updateAccount2.AccountID = '0419c5ee-62c8-e711-80e4-00155d00122c';
     updateAccount2.BusinessStartDate = new Date('2011-06-06T08:00:00');
     updateAccount2.ChangeSetlist.push('BusinessStartDate');
