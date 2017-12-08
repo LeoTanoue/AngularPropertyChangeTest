@@ -26,7 +26,8 @@ export class AppComponent implements OnInit {
     const restUrl = 'http://localhost:2756/api/Account/AccountByOppID/94211BC6-90E1-E611-80E0-00155D01E500';
     this.http.get(restUrl, { withCredentials: true }).map((res: Response) => res.json()).subscribe(
       data => {
-        this.account =  data as Account;
+        this.account = Object.assign(new Account(), data) as Account;
+        // this.account =  data as Account;
         this.form.setValue({
           AccountID: [this.account.AccountID],
           Name: [this.account.Name],
@@ -34,7 +35,10 @@ export class AppComponent implements OnInit {
           BusinessStartDate: [this.account.BusinessStartDate]
         });
       } ,
-      error => console.log(error)
+      error => console.log(error),
+      () => {
+        console.log(this.account);
+      }
     );
   }
 
@@ -54,14 +58,10 @@ export class AppComponent implements OnInit {
   }
 
   updateAccount(updateAccount: Account) {
-    const updateAccount2 = new Account();
-    updateAccount2.AccountID = '0419c5ee-62c8-e711-80e4-00155d00122c';
-    updateAccount2.BusinessStartDate = new Date('2011-06-06T08:00:00');
-    updateAccount2.ChangeSetlist.push('BusinessStartDate');
     const headers = new Headers({ 'Content-Type': 'application/json' });
     const options = new RequestOptions({ headers: headers, withCredentials: true });
     this.http
-    .put('http://localhost:2756/api/Account/Update/', updateAccount2, options)
+    .put('http://localhost:2756/api/Account/Update/', updateAccount, options)
     .map(data => data.json() as any[])
     .subscribe(data => console.log(data));
   }
