@@ -3,29 +3,29 @@
     get-set POC!
   </h1>
 </div>
-<div *ngIf="account">
+<!-- <div *ngIf="account"> -->
   <h3>Form</h3>
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label class="center-block">Name:
-        <input class="form-control" formControlName="Name">
+        <input class="form-control" formControlName="name">
       </label>
     </div>
     <div class="form-group">
       <label class="center-block">DBA:
-        <input class="form-control" formControlName="DBA">
+        <input class="form-control" formControlName="dba">
       </label>
     </div>
     <div class="form-group">
       <label class="center-block">BusinessStartDate:
-        <input class="form-control" formControlName="BusinessStartDate">
+        <input class="form-control" formControlName="businessStartDate">
       </label>
     </div>
     <button>Save</button>
   </form>
   <hr />
-  <p>{{account.AccountID}}</p>
-  <p>{{account.Name}}</p>
-  <p>{{account.DBA}}</p>
-  <p>{{account.BusinessStartDate}}</p>
-</div>
+  <p>{{account.accountID}}</p>
+  <p>{{account.name}}</p>
+  <p>{{account.dba}}</p>
+  <p>{{account.businessStartDate}}</p>
+<!-- </div> -->
