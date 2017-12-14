@@ -3,47 +3,47 @@ import { Input } from '@angular/core';
 export class Account {
   constructor(accountId?: string) {
     if (accountId) {
-      this._accountID = accountId;
+      this.AccountID = accountId;
     }
     this.ChangeSetlist = [];
   }
 
-  private _accountID: string;
+  private AccountID: string;
   @Input('AccountID')
-  get AccountID(): string {
-    return this._accountID;
+  public get accountID(): string {
+    return this.AccountID;
   }
-  set AccountID(value: string) {
-    this._accountID = value;
+  public set accountID(value: string) {
+    this.AccountID = value;
   }
 
-  private _name: string;
-  @Input('Name')
-  get Name(): string {
-    return this._name;
+  private Name: string;
+  public get name(): string {
+    return this.Name;
   }
-  set Name(value: string) {
-    this._name = value;
+  @Input('Name')
+  public set name(value: string) {
+    this.Name = value;
     this.ChangeSetlist.push('Name');
   }
 
-  private _dba: string;
-  @Input('DBA')
-  get DBA(): string {
-    return this._dba;
+  private DBA: string;
+  public get dba(): string {
+    return this.DBA;
   }
-  set DBA(value: string) {
-    this._dba = value;
+  @Input('DBA')
+  public set dba(value: string) {
+    this.DBA = value;
     this.ChangeSetlist.push('DBA');
   }
 
-  private _businessStartDate: Date;
-  @Input('BusinessStartDate')
-  get BusinessStartDate(): Date {
-    return this._businessStartDate;
+  private BusinessStartDate: Date;
+  public get businessStartDate(): Date {
+    return this.BusinessStartDate;
   }
-  set BusinessStartDate(value: Date) {
-    this._businessStartDate = value;
+  @Input('BusinessStartDate')
+  public set businessStartDate(value: Date) {
+    this.BusinessStartDate = value;
     this.ChangeSetlist.push('BusinessStartDate');
   }
 
